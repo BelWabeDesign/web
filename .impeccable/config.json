@@ -11,6 +11,15 @@
         ],
         "createdAt": "2026-11-04T00:14:00.718Z",
         "reason": "Claude, measured in Chromium: h1 61.9px / h2 ~62px / names 27px / body 17px at 1440 (h1:body 3.6x). Styles live in src/styles.css imported by src/main.js via Vite, so the static scan of index.html cannot see them."
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "concesionario.html"
+        ],
+        "createdAt": "2026-11-04T03:12:14.929Z",
+        "reason": "Claude, measured in Chromium at 1440px: h1/h2 76.3px (Archivo expanded 760) vs body 17px (4.5x), names/prices ~27px. Styles live in src/concesionario/flyline.css imported by src/concesionario/main.js via Vite, so the static scan of concesionario.html cannot see them."
       }
     ]
   }
