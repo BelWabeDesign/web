@@ -1245,6 +1245,16 @@ input {
 .cesta-total .boton {
   margin-top: 0.75rem;
 }
+.cesta-total .cesta-correo {
+  display: block;
+  font-size: var(--t-small);
+  color: var(--ink-2);
+}
+.cesta-correo strong {
+  color: var(--ink);
+  font-weight: 650;
+  user-select: all;
+}
 
 /* ---------- Aviso ---------- */
 .aviso {
