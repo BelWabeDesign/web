@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-04T00:14:00.718Z",
+        "reason": "Claude, measured in Chromium: h1 61.9px / h2 ~62px / names 27px / body 17px at 1440 (h1:body 3.6x). Styles live in src/styles.css imported by src/main.js via Vite, so the static scan of index.html cannot see them."
+      }
+    ]
+  }
+}
