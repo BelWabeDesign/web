@@ -2,6 +2,7 @@
 // Cuando haya pasarela de pago, sustituir checkoutHref() por la llamada real.
 
 import { SHIPPING, euros, glazeById, priceOf, productById, sizeById } from './data/catalog.js';
+import { asset } from './asset.js';
 
 const KEY = 'torno-cesta-v1';
 const ORDER_EMAIL = 'pedidos@torno.example';
@@ -129,7 +130,7 @@ export function mountCart({ onAdd } = {}) {
         const li = document.createElement('li');
         li.className = 'linea';
         li.innerHTML = `
-          <img src="./renders/${p.id}-sm.webp" width="240" height="300" alt="" />
+          <img src="${asset(`renders/${p.id}-sm.webp`)}" width="240" height="300" alt="" />
           <p class="linea-nombre"></p>
           <p class="linea-precio">${euros(priceOf(l.product, l.glaze, l.size) * l.qty)}</p>
           <p class="linea-detalle"></p>

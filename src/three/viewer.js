@@ -34,15 +34,15 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 import { clay, glazeById, productById, sizeById } from '../data/catalog.js';
+import { asset } from '../asset.js';
 
 const TAU = Math.PI * 2;
-const base = import.meta.env?.BASE_URL ?? '/';
 const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
 const cache = new Map();
 
 /** Carga (una vez) el .glb de una pieza. */
 export function loadPiece(id) {
-  if (!cache.has(id)) cache.set(id, loader.loadAsync(`${base}models/${id}.glb`));
+  if (!cache.has(id)) cache.set(id, loader.loadAsync(asset(`models/${id}.glb`)));
   return cache.get(id);
 }
 

@@ -1,6 +1,7 @@
 import './styles.css';
 import { glazeById, priceOf, productById, sizes, euros, clay } from './data/catalog.js';
 import { mountCart, cart } from './cart.js';
+import { asset } from './asset.js';
 import { setupMotion, attachProcess, bump } from './motion.js';
 
 document.documentElement.classList.add('js');
@@ -42,7 +43,7 @@ function syncConfig() {
   priceOut.textContent = euros(priceOf(state.product, state.glaze, state.size));
   note.textContent = g.note;
   caption.textContent = `${p.name} en ${g.name}`;
-  fallback.src = `./renders/${p.id}.webp`;
+  fallback.src = asset(`renders/${p.id}.webp`);
   for (const s of sizes) {
     const el = form.querySelector(`[data-size-dims="${s.id}"]`);
     const main = p.diameter > p.height ? p.diameter : p.height;

@@ -11,6 +11,7 @@ npm install
 npm run dev        # http://localhost:5173
 npm run build      # genera dist/ (estático, se puede servir desde cualquier carpeta)
 npm run preview
+npm run build:single   # dist-single/torno.html: todo en un solo archivo (~3 MB), se abre con doble clic
 ```
 
 ## Qué hay en la página

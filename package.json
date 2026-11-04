@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "models": "node scripts/build-models.mjs",
     "renders": "node scripts/render-products.mjs",
-    "prepare-3d": "npm run models && npm run renders"
+    "prepare-3d": "npm run models && npm run renders",
+    "build:single": "node scripts/build-single.mjs"
   },
   "dependencies": {
     "@fontsource-variable/hanken-grotesk": "^5.3.0",
