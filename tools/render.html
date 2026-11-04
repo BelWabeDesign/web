@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Render de piezas</title>
+    <style>
+      html, body { margin: 0; background: transparent; }
+      canvas { display: block; width: 1200px; height: 1500px; }
+    </style>
+  </head>
+  <body>
+    <canvas id="c"></canvas>
+    <script type="module">
+      import { Viewer } from '../src/three/viewer.js';
+      const q = new URLSearchParams(location.search);
+      const v = new Viewer(document.getElementById('c'), {
+        spin: 0, interactive: false, preserve: true, fit: Number(q.get('fit') ?? 1.06), tilt: 0.2,
+      });
+      v.angle = Number(q.get('angle') ?? 0.5);
+      await v.show(q.get('id'), { glaze: q.get('glaze') || undefined, sweep: Number(q.get('sweep') ?? 1) });
+      v.turntable.rotation.y = v.angle;
+      v.renderer.render(v.scene, v.camera);
+      requestAnimationFrame(() => requestAnimationFrame(() => (window.__ready = true)));
+    </script>
+  </body>
+</html>

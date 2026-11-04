@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Torno · Cerámica torneada en Manises</title>
+    <meta
+      name="description"
+      content="Jarrones, botellas, cuencos, tazas y platos de gres torneados a mano en Manises. Elige esmalte y tamaño y mira la pieza en 3D antes de comprarla."
+    />
+    <meta name="theme-color" content="#eeefea" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="./models/albufera.glb" as="fetch" crossorigin />
+  </head>
+  <body>
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+    <header class="barra">
+      <div class="barra-dentro">
+        <a class="marca" href="#inicio" aria-label="Torno, inicio">Torno</a>
+        <nav class="menu" id="menu" aria-label="Secciones">
+          <a href="#piezas">Piezas</a>
+          <a href="#esmaltes">Esmaltes</a>
+          <a href="#hornada">La hornada</a>
+          <a href="#manises">Manises</a>
+          <a href="#envios">Envíos</a>
+        </nav>
+        <button class="boton-menu" type="button" aria-expanded="false" aria-controls="menu">Menú</button>
+        <button class="boton boton-cesta" type="button" data-open-cart>
+          Cesta <span class="cesta-num" data-cart-count>0</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <!-- Portada: la pieza se forma girando su perfil, como en el torno. -->
+      <section class="portada" id="inicio" aria-labelledby="titulo">
+        <div class="portada-texto">
+          <h1 id="titulo" class="portada-titulo">Cerámica torneada en Manises</h1>
+          <p class="portada-entrada">
+            Jarrones, botellas, cuencos, tazas y platos de gres hechos a mano y cocidos una vez por semana a
+            1.280&nbsp;°C. Desde 24&nbsp;€, con envío el lunes después de cada hornada.
+          </p>
+          <div class="portada-acciones">
+            <a class="boton boton-cobalto" href="#piezas">Ver las seis piezas</a>
+            <a class="enlace" href="#esmaltes">Elegir esmalte en 3D</a>
+          </div>
+          <div class="portada-pieza">
+            <p class="portada-pieza-nombre">Jarrón Albufera, Azul Manises</p>
+            <p class="portada-pieza-dato">32 cm de alto · 89&nbsp;€</p>
+            <button class="boton boton-tinta" type="button" data-add="albufera">Añadir a la cesta</button>
+          </div>
+        </div>
+        <figure class="portada-visor visor" data-viewer="hero">
+          <img
+            class="visor-respaldo"
+            src="./renders/albufera.webp"
+            width="1000"
+            height="1250"
+            alt="Jarrón Albufera en esmalte Azul Manises"
+          />
+          <canvas
+            class="visor-lienzo"
+            tabindex="0"
+            role="img"
+            aria-label="Jarrón Albufera en 3D formándose en el torno. Arrastra o usa las flechas para girarlo."
+          ></canvas>
+        </figure>
+      </section>
+
+      <!-- Catálogo -->
+      <section class="seccion catalogo" id="piezas" aria-labelledby="titulo-piezas">
+        <div class="cabecera">
+          <h2 id="titulo-piezas" class="titulo-seccion">Seis piezas en cada hornada</h2>
+          <p class="cabecera-texto">
+            Todas se tornean en gres y se pueden pedir en seis esmaltes y tres tamaños. El precio que ves es el de la
+            talla mediana con su esmalte de siempre.
+          </p>
+        </div>
+        <div class="mosaico">
+          <!--catalogo-->
+        </div>
+      </section>
+
+      <!-- Configurador: lo único que el visitante hace con la pieza. -->
+      <section class="seccion configurador" id="esmaltes" aria-labelledby="titulo-esmaltes">
+        <figure class="config-visor visor" data-viewer="config">
+          <img class="visor-respaldo" src="./renders/albufera.webp" width="1000" height="1250" alt="" data-config-fallback />
+          <canvas
+            class="visor-lienzo"
+            tabindex="0"
+            role="img"
+            aria-label="Pieza elegida en 3D con su esmalte. Arrastra o usa las flechas para girarla."
+          ></canvas>
+          <figcaption class="config-leyenda" data-config-caption>Jarrón Albufera en Azul Manises</figcaption>
+        </figure>
+        <form class="config-panel" data-config-form>
+          <h2 id="titulo-esmaltes" class="titulo-seccion">Elige esmalte y tamaño</h2>
+          <p class="config-entrada">
+            La pieza gira como en el torno. Cambia el esmalte y el tamaño y el precio se ajusta al momento.
+          </p>
+          <fieldset class="grupo">
+            <legend>Pieza</legend>
+            <div class="opciones-piezas"><!--piezas--></div>
+          </fieldset>
+          <fieldset class="grupo">
+            <legend>Esmalte</legend>
+            <div class="opciones-esmaltes"><!--esmaltes--></div>
+            <p class="esmalte-nota" data-glaze-note aria-live="polite">
+              Cobalto sobre blanco de estaño, el azul de los alfares de Manises.
+            </p>
+          </fieldset>
+          <fieldset class="grupo">
+            <legend>Tamaño</legend>
+            <div class="opciones-tamanos"><!--tamanos--></div>
+          </fieldset>
+          <div class="config-compra">
+            <p class="config-precio"><output data-config-price aria-live="polite"><!--precio-inicial--></output></p>
+            <button class="boton boton-cobalto" type="submit">Añadir a la cesta</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- La semana de una pieza: escena fijada que avanza con el scroll. -->
+      <section class="seccion hornada" id="hornada" aria-labelledby="titulo-hornada">
+        <div class="hornada-escena">
+          <div class="hornada-texto">
+            <h2 id="titulo-hornada" class="titulo-seccion">Una hornada cada viernes</h2>
+            <p class="hornada-entrada">
+              Lo que pides hasta el miércoles entra en el horno del viernes y sale hacia tu casa el lunes. Esta es la
+              semana de un albarelo.
+            </p>
+            <ol class="dias">
+              <li class="dia" data-day="0">
+                <h3>Lunes, en el torno</h3>
+                <p>El barro húmedo sube entre las manos. Toda la pieza sale de un solo perfil que gira.</p>
+              </li>
+              <li class="dia" data-day="1">
+                <h3>Martes, repasado</h3>
+                <p>Con dureza de cuero se le recorta el pie y se afina la pared hasta medio centímetro.</p>
+              </li>
+              <li class="dia" data-day="2">
+                <h3>Miércoles, bizcocho a 980&nbsp;°C</h3>
+                <p>Primera cocción. El barro se vuelve rosado, duro y poroso, listo para beber el esmalte.</p>
+              </li>
+              <li class="dia" data-day="3">
+                <h3>Jueves, esmalte</h3>
+                <p>Se baña en esmalte crudo, un polvo gris que todavía no tiene el color que tendrá.</p>
+              </li>
+              <li class="dia" data-day="4">
+                <h3>Viernes, horno a 1.280&nbsp;°C</h3>
+                <p>Doce horas de fuego. El esmalte se funde, se vuelve vidrio y saca su color.</p>
+              </li>
+              <li class="dia" data-day="5">
+                <h3>Lunes, de camino</h3>
+                <p>Abrimos el horno, revisamos cada pieza a mano y la embalamos en cartón y papel.</p>
+              </li>
+            </ol>
+          </div>
+          <figure class="hornada-visor visor" data-viewer="process">
+            <img class="visor-respaldo" src="./renders/albarelo.webp" width="1000" height="1250" alt="Albarelo Manises terminado, en Azul Manises" />
+            <canvas
+              class="visor-lienzo"
+              role="img"
+              aria-label="Un albarelo en 3D que cambia de barro a pieza esmaltada según avanza la semana."
+            ></canvas>
+            <figcaption class="hornada-dia" aria-hidden="true" data-day-label>Lunes</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Manises: piezas reales de museo, el origen de los perfiles y esmaltes. -->
+      <section class="seccion manises" id="manises" aria-labelledby="titulo-manises">
+        <div class="manises-cabecera">
+          <h2 id="titulo-manises" class="titulo-seccion">Siete siglos de loza en Manises</h2>
+          <p class="manises-texto">
+            Desde el siglo XIV, los alfares de Manises y de la vecina Paterna cocían loza con esmalte de estaño, azul de
+            cobalto y reflejo metálico, y la vendían por media Europa. Hoy esas piezas están en museos de Nueva York y
+            Cleveland. De ellas salen nuestros perfiles y nuestros esmaltes.
+          </p>
+        </div>
+        <div class="manises-rejilla">
+          <div class="fila fila-a">
+          <figure class="foto foto-plato">
+            <div class="foto-marco">
+              <img src="./images/manises/plato-reflejo-met.webp" width="1600" height="1200" loading="lazy" alt="Plato de loza con decoración de reflejo dorado en anillos concéntricos" />
+            </div>
+            <figcaption>Plato de reflejo dorado. Valencia, probablemente Manises, segunda mitad del siglo XV. The Metropolitan Museum of Art.</figcaption>
+          </figure>
+          <figure class="foto foto-albarelo">
+            <div class="foto-marco">
+              <img src="./images/manises/albarelo-manises-cleveland.webp" width="682" height="893" loading="lazy" alt="Albarelo con bandas azules y de reflejo pardo" />
+            </div>
+            <figcaption>Albarelo. Manises, hacia 1400–1420. Azul y reflejo, el origen de nuestro Albarelo Manises. The Cleveland Museum of Art.</figcaption>
+          </figure>
+          </div>
+          <div class="fila fila-b">
+          <figure class="foto foto-perfil">
+            <div class="foto-marco">
+              <img src="./images/manises/plato-reflejo-perfil-met.webp" width="1600" height="935" loading="lazy" alt="El mismo plato visto de canto, con los anillos del torno a la vista" />
+            </div>
+            <figcaption>El mismo plato de canto. Cada anillo es una vuelta del torno; nuestro Plato Reflejo copia este perfil.</figcaption>
+          </figure>
+          <figure class="foto foto-paterna-a">
+            <div class="foto-marco">
+              <img src="./images/manises/albarelo-conejos-paterna-cleveland.webp" width="717" height="893" loading="lazy" alt="Albarelo blanco con dos conejos pintados en verde y morado" />
+            </div>
+            <figcaption>Albarelo con dos conejos. Paterna, siglo XIV. El verde de cobre de nuestro Verde Paterna.</figcaption>
+          </figure>
+          <figure class="foto foto-paterna-b">
+            <div class="foto-marco">
+              <img src="./images/manises/albarelo-cufico-paterna-cleveland.webp" width="686" height="893" loading="lazy" alt="Albarelo con letras pseudocúficas en negro de manganeso sobre blanco y verde" />
+            </div>
+            <figcaption>Albarelo con letras pseudocúficas. Paterna, siglo XIV. El negro de manganeso.</figcaption>
+          </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Envíos y preguntas -->
+      <section class="seccion envios" id="envios" aria-labelledby="titulo-envios">
+        <div class="envios-datos">
+          <h2 id="titulo-envios" class="titulo-seccion">Envíos, cuidados y devoluciones</h2>
+          <dl class="cifras">
+            <div>
+              <dt>Envío a la península</dt>
+              <dd>6&nbsp;€</dd>
+            </div>
+            <div>
+              <dt>Gratis a partir de</dt>
+              <dd>80&nbsp;€</dd>
+            </div>
+            <div>
+              <dt>Para devolver una pieza</dt>
+              <dd>14 días</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="preguntas">
+          <details open>
+            <summary><h3>¿Cuándo llega mi pedido?</h3></summary>
+            <p>
+              Lo que pides hasta el miércoles a medianoche entra en la hornada del viernes. El lunes sale con mensajería
+              y llega en 24–48 horas a la península. Baleares, Canarias, Ceuta y Melilla tardan de tres a cinco días.
+            </p>
+          </details>
+          <details>
+            <summary><h3>¿Y si llega rota?</h3></summary>
+            <p>
+              Mándanos una foto de la pieza y de la caja en los siete días siguientes a la entrega y te enviamos otra de
+              la hornada siguiente, sin coste.
+            </p>
+          </details>
+          <details>
+            <summary><h3>¿Va al lavavajillas y al microondas?</h3></summary>
+            <p>
+              Sí, el gres cocido a 1.280&nbsp;°C es vidrio y no absorbe agua. La excepción es el Reflejo: lleva metal en el
+              esmalte, así que se lava a mano y no entra en el microondas.
+            </p>
+          </details>
+          <details>
+            <summary><h3>¿Mi pieza será igual que la de la foto?</h3></summary>
+            <p>
+              Casi. Cada pieza se tornea a mano, así que las medidas cambian unos cinco milímetros y el esmalte corre un
+              poco distinto en cada hornada. El modelo 3D muestra la forma y el color exactos de partida.
+            </p>
+          </details>
+          <details>
+            <summary><h3>¿Cómo la devuelvo?</h3></summary>
+            <p>
+              Tienes 14 días desde la entrega. Escríbenos, embálala como llegó y te devolvemos el importe de la pieza en
+              cuanto vuelva al taller. El envío de vuelta corre de tu cuenta.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pie">
+      <p class="pie-marca" aria-hidden="true">Torno</p>
+      <div class="pie-columnas">
+        <div>
+          <h2 class="pie-titulo">Taller</h2>
+          <p>Manises, València</p>
+          <p>Visitas los sábados de 10 a 14&nbsp;h</p>
+          <p><a href="mailto:hola@torno.example">hola@torno.example</a></p>
+        </div>
+        <div>
+          <h2 class="pie-titulo">Tienda</h2>
+          <p><a href="#piezas">Piezas</a></p>
+          <p><a href="#esmaltes">Esmaltes y tamaños</a></p>
+          <p><a href="#envios">Envíos y devoluciones</a></p>
+        </div>
+        <div class="pie-creditos">
+          <h2 class="pie-titulo">Imágenes</h2>
+          <p>
+            Plato de reflejo dorado, Valencia (probablemente Manises), s. XV: The Metropolitan Museum of Art, Robert
+            Lehman Collection, 1975, CC0.
+          </p>
+          <p>
+            Albarelo, Manises, h. 1400–1420: The Cleveland Museum of Art, Purchase from the J. H. Wade Fund, CC0.
+          </p>
+          <p>
+            Albarelo con dos conejos y Albarelo con letras pseudocúficas, Paterna, s. XIV: The Cleveland Museum of Art,
+            in memory of Mr. and Mrs. Henry Humphreys, gift of their daughter Helen, CC0.
+          </p>
+          <p>Las piezas de Torno son modelos 3D generados a partir de sus perfiles.</p>
+        </div>
+      </div>
+      <p class="pie-firma">Diseño y desarrollo: BelWabe Design</p>
+    </footer>
+
+    <dialog class="cesta" id="cesta" aria-labelledby="titulo-cesta">
+      <div class="cesta-dentro">
+        <div class="cesta-cabecera">
+          <h2 id="titulo-cesta" class="cesta-titulo">Tu cesta</h2>
+          <button class="boton boton-claro" type="button" data-close-cart>Cerrar</button>
+        </div>
+        <ul class="cesta-lista" data-cart-list></ul>
+        <p class="cesta-vacia" data-cart-empty>
+          Todavía no hay nada. <a href="#piezas" data-close-cart>Mira las seis piezas</a>.
+        </p>
+        <div class="cesta-total" data-cart-summary>
+          <p><span>Piezas</span> <span data-cart-subtotal>0 €</span></p>
+          <p><span>Envío</span> <span data-cart-shipping>6 €</span></p>
+          <p class="cesta-total-linea"><span>Total</span> <span data-cart-total>0 €</span></p>
+          <p class="cesta-aviso" data-cart-free></p>
+          <a class="boton boton-cobalto boton-ancho" data-checkout href="#">Hacer el pedido por correo</a>
+        </div>
+      </div>
+    </dialog>
+
+    <p class="aviso" role="status" aria-live="polite" data-toast></p>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "torno-tienda-3d",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "models": "node scripts/build-models.mjs",
+    "renders": "node scripts/render-products.mjs",
+    "prepare-3d": "npm run models && npm run renders"
+  },
+  "dependencies": {
+    "@fontsource-variable/hanken-grotesk": "^5.3.0",
+    "@fontsource/young-serif": "^5.3.0",
+    "gsap": "^3.15.0",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "^4.5.1",
+    "@gltf-transform/extensions": "^4.5.1",
+    "@gltf-transform/functions": "^4.5.1",
+    "meshoptimizer": "^1.3.0",
+    "vite": "^8.3.5"
+  }
+}
