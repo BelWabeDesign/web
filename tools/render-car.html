@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Render de autos</title>
+    <style>
+      html, body { margin: 0; background: transparent; }
+      canvas { display: block; }
+    </style>
+  </head>
+  <body>
+    <canvas id="c"></canvas>
+    <script type="module">
+      import { CarViewer } from '../src/concesionario/visor.js';
+      const q = new URLSearchParams(location.search);
+      const c = document.getElementById('c');
+      c.style.width = `${q.get('w') ?? 1600}px`;
+      c.style.height = `${q.get('h') ?? 1000}px`;
+      const v = new CarViewer(c, {
+        spin: 0, interactive: false, preserve: true,
+        azimuth: Number(q.get('az') ?? -0.62), elevation: Number(q.get('el') ?? 0.2), fit: Number(q.get('fit') ?? 1.0),
+        fov: Number(q.get('fov') ?? 26),
+      });
+      await v.show(q.get('id'));
+      v.frame();
+      v.renderer.render(v.scene, v.camera);
+      requestAnimationFrame(() => requestAnimationFrame(() => (window.__ready = true)));
+    </script>
+  </body>
+</html>

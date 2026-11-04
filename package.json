@@ -9,10 +9,13 @@
     "preview": "vite preview",
     "models": "node scripts/build-models.mjs",
     "renders": "node scripts/render-products.mjs",
-    "prepare-3d": "npm run models && npm run renders",
-    "build:single": "node scripts/build-single.mjs"
+    "prepare-3d": "npm run models && npm run renders && npm run cars && npm run car-renders",
+    "build:single": "node scripts/build-single.mjs",
+    "cars": "node scripts/build-cars.mjs",
+    "car-renders": "node scripts/render-cars.mjs"
   },
   "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
     "@fontsource-variable/hanken-grotesk": "^5.3.0",
     "@fontsource/young-serif": "^5.3.0",
     "gsap": "^3.15.0",

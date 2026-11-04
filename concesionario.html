@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flyline · Porsche seleccionados</title>
+    <meta
+      name="description"
+      content="Porsche de ocasión revisados uno a uno: 911 GT3 RS, 911 Carrera S, 718 Cayman GT4 RS y Taycan Turbo S. Míralos en 3D, calcula la cuota y agenda una visita."
+    />
+    <meta name="theme-color" content="#eceae6" />
+    <link rel="icon" href="./favicon-flyline.svg" type="image/svg+xml" />
+  </head>
+  <body class="flyline">
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+    <header class="barra">
+      <div class="barra-dentro">
+        <a class="marca" href="#inicio" aria-label="Flyline, inicio">Flyline</a>
+        <nav class="menu" id="menu" aria-label="Secciones">
+          <a href="#stock">Stock</a>
+          <a href="#showroom">Showroom 3D</a>
+          <a href="#comparar">Comparar</a>
+          <a href="#garantia">Garantía</a>
+        </nav>
+        <button class="boton-menu" type="button" aria-expanded="false" aria-controls="menu">Menú</button>
+        <a class="boton boton-acento boton-barra" href="#visita">Agendar visita</a>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <!-- Portada: el GT3 RS aparece como si lo escanearan, de la trompa a la cola. -->
+      <section class="portada" id="inicio" aria-labelledby="titulo">
+        <div class="portada-texto">
+          <h1 id="titulo" class="titular">Porsche seleccionados</h1>
+          <div class="portada-lado">
+            <p class="portada-entrada">
+              Flyline compra, revisa y vende Porsche de ocasión. Cuatro autos en stock, todos con historial completo y
+              para mirar en 3D antes de venir.
+            </p>
+            <div class="acciones">
+              <a class="boton boton-acento" href="#stock">Ver los cuatro autos</a>
+              <a class="enlace" href="#visita">Agendar una visita</a>
+            </div>
+          </div>
+        </div>
+        <figure class="portada-visor visor" data-viewer="hero">
+          <img class="visor-respaldo" src="./renders/autos/gt3rs.webp" width="1600" height="900" alt="Porsche 911 GT3 RS en rosa Frozen Berry, modelo 3D" />
+          <canvas class="visor-lienzo" tabindex="0" role="img" aria-label="Porsche 911 GT3 RS en 3D. Arrastra o usa las flechas para girarlo."></canvas>
+          <figcaption class="portada-ficha">
+            <span class="ficha-nombre">911 GT3 RS</span>
+            <span class="ficha-dato">2023 · 4.800 km · Frozen Berry</span>
+            <span class="ficha-precio">US$ 365.000</span>
+            <a class="enlace enlace-claro" href="#showroom" data-show="gt3rs">Ver la ficha</a>
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- Stock -->
+      <section class="seccion stock" id="stock" aria-labelledby="titulo-stock">
+        <div class="cabecera">
+          <h2 id="titulo-stock" class="titulo-seccion">Cuatro autos en stock</h2>
+          <p class="cabecera-texto">
+            Cada uno pasó por nuestro taller antes de llegar aquí. Los precios incluyen la revisión, la garantía de 12
+            meses y el traslado a tu domicilio.
+          </p>
+        </div>
+        <div class="lista-stock"><!--stock--></div>
+      </section>
+
+      <!-- Showroom 3D: lo que el visitante hace en la página. -->
+      <section class="showroom" id="showroom" aria-labelledby="titulo-showroom">
+        <div class="showroom-dentro">
+          <div class="showroom-cabecera">
+            <h2 id="titulo-showroom" class="titulo-seccion">Míralo por todos lados</h2>
+            <div class="pestanas" role="tablist" aria-label="Autos en el showroom"><!--pestanas--></div>
+          </div>
+          <div class="showroom-cuerpo">
+            <figure class="showroom-visor visor" data-viewer="showroom">
+              <img class="visor-respaldo" src="./renders/autos/gt3rs.webp" width="1600" height="900" alt="" data-showroom-fallback />
+              <canvas class="visor-lienzo" tabindex="0" role="img" aria-label="Auto elegido en 3D. Arrastra para girarlo; arriba y abajo cambian la altura de la vista."></canvas>
+            </figure>
+            <div class="ficha" id="ficha" role="tabpanel" aria-live="polite">
+              <p class="ficha-titulo" data-f="nombre">Porsche 911 GT3 RS</p>
+              <p class="ficha-meta" data-f="meta">2023 · 4.800 km · Frozen Berry metalizado</p>
+              <p class="ficha-resumen" data-f="resumen">Paquete Weissach, techo y capó de carbono, llantas de magnesio y elevador del eje delantero.</p>
+              <dl class="ficha-datos">
+                <div><dt>Potencia</dt><dd data-f="potencia">525 CV</dd></div>
+                <div><dt>0 a 100 km/h</dt><dd data-f="aceleracion">3,2 s</dd></div>
+                <div><dt>Velocidad máxima</dt><dd data-f="velocidad">296 km/h</dd></div>
+                <div><dt>Motor</dt><dd data-f="motor">6 cilindros bóxer, 4.0 l atmosférico</dd></div>
+                <div><dt>Caja</dt><dd data-f="caja">PDK de 7 marchas</dd></div>
+              </dl>
+              <div class="fotos" data-f="fotos">
+                <p class="fotos-titulo">Fotos de esta unidad</p>
+                <div class="fotos-fila">
+                  <img src="./images/autos/gt3rs-lateral.webp" alt="El GT3 RS de perfil" />
+                  <img src="./images/autos/gt3rs-tres-cuartos.webp" alt="El GT3 RS en tres cuartos delantero" />
+                  <img src="./images/autos/gt3rs-frente.webp" alt="El GT3 RS de frente" />
+                </div>
+              </div>
+              <form class="cuota" data-cuota aria-labelledby="titulo-cuota">
+                <h3 id="titulo-cuota" class="cuota-titulo">Calcula la cuota</h3>
+                <p class="cuota-precio"><span>Precio</span> <output data-f="precio">US$ 365.000</output></p>
+                <label class="cuota-campo" for="enganche">
+                  <span>Enganche <output data-enganche-out>30 % · US$ 109.500</output></span>
+                  <input id="enganche" name="enganche" type="range" min="20" max="60" step="5" value="30" />
+                </label>
+                <fieldset class="cuota-plazos">
+                  <legend>Plazo en meses</legend>
+                  <label><input type="radio" name="plazo" value="24" /><span>24</span></label>
+                  <label><input type="radio" name="plazo" value="36" /><span>36</span></label>
+                  <label><input type="radio" name="plazo" value="48" checked /><span>48</span></label>
+                  <label><input type="radio" name="plazo" value="60" /><span>60</span></label>
+                </fieldset>
+                <p class="cuota-resultado">
+                  <output data-cuota-out>US$ 6.471</output> <span>al mes</span>
+                </p>
+                <p class="cuota-nota">Tasa fija de ejemplo del 9,9 % anual. La cuota final depende de la aprobación del crédito.</p>
+              </form>
+              <a class="boton boton-acento boton-ancho" href="#visita" data-visit>Agendar una visita para verlo</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Comparativa: las cuatro siluetas a escala, con su tabla. -->
+      <section class="seccion comparar" id="comparar" aria-labelledby="titulo-comparar">
+        <div class="cabecera">
+          <h2 id="titulo-comparar" class="titulo-seccion">Cuatro perfiles, a escala</h2>
+          <p class="cabecera-texto">
+            Las siluetas laterales alineadas en el eje delantero. El 911 lleva el motor detrás del eje trasero; el
+            Cayman, delante; el Taycan suma 45 cm de batalla para las plazas de atrás.
+          </p>
+        </div>
+        <figure class="perfiles" data-perfiles>
+          <div class="leyenda" role="group" aria-label="Elegir auto en el gráfico"><!--leyenda--></div>
+          <div class="perfiles-lienzo"><!--perfiles--></div>
+          <p class="perfiles-tooltip" data-tooltip hidden></p>
+          <figcaption class="perfiles-pie">Siluetas de los modelos 3D, escaladas al largo de fábrica. Metros desde el eje delantero.</figcaption>
+        </figure>
+        <div class="tabla-envoltura">
+          <table class="tabla">
+            <caption>Datos de fábrica de cada auto en stock</caption>
+            <!--tabla-->
+          </table>
+        </div>
+      </section>
+
+      <!-- Garantía y proceso -->
+      <section class="seccion garantia" id="garantia" aria-labelledby="titulo-garantia">
+        <h2 id="titulo-garantia" class="titulo-seccion">Así llega cada auto</h2>
+        <ol class="pasos">
+          <li>
+            <h3>Historial verificado</h3>
+            <p>Revisamos el libro de servicio, los dueños anteriores y el kilometraje con los registros del servicio oficial.</p>
+          </li>
+          <li>
+            <h3>Revisión en nuestro taller</h3>
+            <p>Motor, caja, frenos, suspensión y carrocería, en elevador y en prueba de manejo. Lo que no está bien, se cambia.</p>
+          </li>
+          <li>
+            <h3>Garantía de 12 meses</h3>
+            <p>Cubre motor, caja y electrónica, sin límite de kilometraje, y se puede ampliar a 24 meses.</p>
+          </li>
+          <li>
+            <h3>Entrega en tu puerta</h3>
+            <p>Lo llevamos en camión cerrado y te explicamos el auto en la entrega. También tomamos tu Porsche a cuenta.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Visita -->
+      <section class="seccion visita" id="visita" aria-labelledby="titulo-visita">
+        <div class="visita-texto">
+          <h2 id="titulo-visita" class="titulo-seccion">Agenda una visita</h2>
+          <p>
+            El showroom abre con cita para que el auto esté listo, limpio y con tiempo para la prueba de manejo. Te
+            contestamos el mismo día.
+          </p>
+          <dl class="contacto">
+            <div><dt>Horario</dt><dd>Lunes a sábado, de 10 a 19 h</dd></div>
+            <div><dt>Correo</dt><dd>citas@flyline.example</dd></div>
+          </dl>
+        </div>
+        <form class="formulario" data-visita novalidate>
+          <label for="v-nombre">Nombre <input id="v-nombre" name="nombre" autocomplete="name" required /></label>
+          <label for="v-contacto">Teléfono o correo <input id="v-contacto" name="contacto" autocomplete="email" required /></label>
+          <label for="v-auto">Auto
+            <select id="v-auto" name="auto"><!--opciones-auto--></select>
+          </label>
+          <label for="v-fecha">Día que prefieres <input id="v-fecha" name="fecha" type="date" /></label>
+          <label class="formulario-ancho" for="v-mensaje">Algo que debamos saber <textarea id="v-mensaje" name="mensaje" rows="3"></textarea></label>
+          <p class="formulario-error" data-error role="alert" hidden></p>
+          <button class="boton boton-acento" type="submit">Pedir la cita</button>
+          <p class="formulario-ok" data-ok role="status" hidden></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="pie">
+      <p class="pie-marca" aria-hidden="true">Flyline</p>
+      <div class="pie-columnas">
+        <p>Porsche de ocasión seleccionados. Showroom con cita, lunes a sábado de 10 a 19 h. citas@flyline.example</p>
+        <p>
+          Porsche, 911, Cayman y Taycan son marcas de Porsche AG. Flyline es un vendedor independiente sin relación con
+          Porsche AG. Los modelos 3D son reconstrucciones aproximadas generadas a partir de sus perfiles.
+        </p>
+        <p>Diseño y desarrollo: BelWabe Design</p>
+      </div>
+    </footer>
+
+    <script type="module" src="./src/concesionario/main.js"></script>
+  </body>
+</html>

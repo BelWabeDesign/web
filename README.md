@@ -1,3 +1,11 @@
+# Demos 3D de BelWabe Design
+
+Dos páginas en el mismo proyecto (Vite + three.js + GSAP):
+
+- **`index.html` · Torno**: tienda de cerámica con modelos 3D, configurador y cesta (abajo).
+- **`concesionario.html` · Flyline**: concesionario de Porsche de ocasión con cuatro autos en 3D,
+  showroom, calculadora de cuota, comparativa a escala y formulario de cita (al final).
+
 # Torno · tienda de cerámica en 3D
 
 Página de tienda (e-commerce) con modelos 3D reales de cada pieza, configurador de
@@ -83,3 +91,46 @@ public/images/manises      fotografías de museo (CC0)
     https://clevelandart.org/art/1943.276
   - Albarelo con letras pseudocúficas, Paterna, s. XIV. The Cleveland Museum of Art,
     1945.28. CC0. https://clevelandart.org/art/1945.28
+
+---
+
+# Flyline · concesionario en 3D (`concesionario.html`)
+
+Concesionario independiente de ejemplo con cuatro autos: el **911 GT3 RS** (modelado a
+partir de las fotos de la unidad), un 911 Carrera S, un 718 Cayman GT4 RS y un Taycan Turbo S.
+
+| Sección | Qué hace |
+| --- | --- |
+| Portada | El GT3 RS aparece escaneado de la trompa a la cola y luego gira; se arrastra o se mueve con las flechas. |
+| Stock | Ficha de cada auto con render, datos, precio y accesos al 3D y a la cita. |
+| Showroom 3D | Pestañas (también con teclado), visor que se gira y se mira desde arriba, fotos de la unidad y cálculo de la cuota mensual. |
+| Comparar | Las cuatro siluetas laterales a escala, alineadas en el eje delantero, con su tabla de datos. |
+| Garantía y cita | Proceso de revisión y formulario que prepara un correo con la solicitud. |
+
+## Modelos de autos (`npm run cars`, `scripts/build-cars.mjs`)
+
+Cada auto se describe en `src/concesionario/autos.js` con sus vistas, como un plano de
+carrocería: silueta lateral, ancho en planta, ancho del habitáculo, línea de cintura,
+guardabarros y pasos de rueda. El script combina las vistas en un campo de distancia,
+extrae la superficie (surface nets, rejilla de 14 mm), separa pintura, vidrios, plásticos
+negros y luces por zonas, simplifica cada zona con meshoptimizer y añade ruedas (neumático,
+llanta de radios, disco y pinza), faros, espejos y alerón. Sale un `.glb` de ~600 KB por auto
+en `public/models/autos/`. `npm run car-renders` genera las imágenes del stock.
+
+Son **reconstrucciones aproximadas** para mostrar el auto, no escaneos: para el modelo exacto
+hay que sustituir el `.glb` por uno escaneado o del fabricante (materiales `pintura`,
+`cristal`, `negro`, `piloto`, `faro`, `luz`, `neumatico`, `llanta`, `disco`, `pinza`).
+
+## Antes de publicar
+
+- **Contenido de ejemplo:** el nombre Flyline, kilometrajes, precios, equipamiento, horario,
+  garantía y el correo `citas@flyline.example` son inventados. Los datos técnicos (potencia,
+  0–100 km/h, velocidad máxima y medidas) son los de fábrica de cada modelo; conviene
+  confirmarlos con la ficha de cada unidad.
+- **Moneda y formato:** precios en US$ con punto de miles. Ajusta `dolares()` en `autos.js`.
+- **Financiamiento:** tasa fija de ejemplo del 9,9 % (`FINANCIAMIENTO` en `autos.js`).
+- **Formulario:** abre el correo con la solicitud; para guardarla en un CRM hay que conectarlo.
+- **Marcas:** el pie aclara que Porsche, 911, Cayman y Taycan son marcas de Porsche AG y que
+  Flyline no tiene relación con ella. No se usan logotipos de la marca.
+- **Fotos:** las tres fotos del GT3 RS son las que entregó el cliente (muy pequeñas: ~230 px);
+  conviene reemplazarlas por fotos en alta.
